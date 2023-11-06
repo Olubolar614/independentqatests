@@ -1,0 +1,38 @@
+{
+  "name": "toolsqa-cypresstests",
+  "version": "1.0.0",
+  "description": "toolsqa cypress test",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open",
+    "cypress:ci": "cypress run",
+    "cypress:smoke-test": "cypress run --spec cypress/integration/smoke-test.spec.js",
+    "cypress:example-test": "cypress run --spec cypress/integration/2-advanced-examples/cypressTest1.js",
+    "cypress:graphql-api-test": "cypress run --spec cypress/integration/2-advanced-examples/appcy.spec.js",
+    "combine-reports": "mochawesome-merge ./cypress/reports/mocha/*.json > ./mochareports/report.json",
+    "generate-report": "marge mochareports/*.json --reportDir mochawesome --assetsDir mochawesome/assets --reportPageTitle index.html"
+  },
+  "author": "oluseun",
+  "license": "ISC",
+  "devDependencies": {
+    "@percy/cypress": "^3.1.2",
+    "cypress": "^13.4.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-iframe": "^1.0.1",
+    "cypress-multi-reporters": "^1.6.2",
+    "cypress-xpath": "^2.0.1",
+    "mocha": "^10.2.0",
+    "mocha-junit-reporter": "^2.2.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.2",
+    "mochawesome-report-generator": "^6.2.0",
+    "multiple-cucumber-html-reporter": "^3.2.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
+  "dependencies": {
+    "gherkin": "^9.0.0"
+  }
+}
